@@ -1,0 +1,64 @@
+<template>
+  <div
+    class="flex inline flex-center shadow-box shadow-5"
+    :class="isKalah ? 'kalah' : 'shadow-box'"
+    @click="pitSelected"
+  >
+    <p class="text-h4 text-white">{{ units }}</p>
+  </div>
+</template>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'MainLayout',
+  props: {
+    id: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    units: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    isKalah: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      leftDrawerOpen: false,
+    };
+  },
+
+  methods: {
+    pitSelected() {
+      this.$emit('pit-selected', this.id);
+    },
+  },
+});
+</script>
+<style lang="sass" scoped>
+.shadow-box
+  width:90px
+  height: 100px
+  margin: 25px
+  border-radius: 50%
+  font-size: 12px
+.kalah
+  width: 100px
+  height: 300px
+  background-color: grey
+  border-radius: 50%
+  border-style: solid 1px black
+.unit
+  width: 6px
+  height: 6px
+  background-color: blue
+  border-radius: 50%
+  border-style: solid 1px black
+</style>
