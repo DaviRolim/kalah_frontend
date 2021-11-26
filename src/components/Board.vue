@@ -115,6 +115,7 @@ export default defineComponent({
 <style lang="sass" scoped>
 .board
    background-color: brown
+   background: url(../assets/kalah-bg.jpg)
    border-radius: 10%
    margin: 25px
 </style>

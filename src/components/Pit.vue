@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex inline flex-center shadow-5"
+    class="flex inline flex-center shadow-15"
     :class="isKalah ? 'kalah' : 'shadow-box'"
     @click="pitSelected"
   >
@@ -52,7 +52,6 @@ export default defineComponent({
 .kalah
   width: 50%
   height: 70%
-  background-color: grey
   margin-top: 30px
   border-radius: 30%
   border-style: solid 1px black
