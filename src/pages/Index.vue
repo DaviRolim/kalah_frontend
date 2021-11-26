@@ -1,6 +1,8 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <q-btn @click="start"> start </q-btn>
+  <q-page class="column items-center q-mt-xl">
+    <q-btn @click="start" class="glossy" rounded color="deep-orange">
+      START GAME</q-btn
+    >
     <board-component
       title="Example component"
       active
@@ -53,9 +55,6 @@ export default defineComponent({
     totalUnits(): number {
       return this.boardState.reduce((a, b) => a + b, 0);
     },
-  },
-  mounted() {
-    console.log('mounted');
   },
   methods: {
     start() {
