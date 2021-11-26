@@ -1,6 +1,15 @@
 <template>
-  <q-page class="column items-center q-mt-xl">
-    <q-btn @click="start" class="glossy" rounded color="grey-9" size="28px">
+  <q-page
+    class="column items-center justify-start"
+    style="background-color: black"
+  >
+    <q-btn
+      @click="start"
+      class="glossy q-mt-xl"
+      rounded
+      color="grey-9"
+      size="28px"
+    >
       START GAME</q-btn
     >
     <board-component
