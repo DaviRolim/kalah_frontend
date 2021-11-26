@@ -1,10 +1,13 @@
 <template>
   <q-card class="my-card shadow-2 board">
-    <q-chip size="18px">
+    <q-chip
+      size="18px"
+      :color="isCurrentPlayer('Player2') ? 'white' : 'grey-7'"
+    >
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
       </q-avatar>
-      Player 2
+      Player 2 {{ currentPlayer == 'Player2' ? ' - Your turn' : '' }}
     </q-chip>
     <div class="row justify-around">
       <div class="col-2 q-pl-xl">
@@ -90,11 +93,15 @@
         ></pit>
       </div>
     </div>
-    <q-chip class="float-right" size="18px">
+    <q-chip
+      class="float-right"
+      size="18px"
+      :color="isCurrentPlayer('Player1') ? 'white' : 'grey-7'"
+    >
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
       </q-avatar>
-      Player 1
+      Player 1 {{ currentPlayer == 'Player1' ? ' - Your turn' : '' }}
     </q-chip>
   </q-card>
 </template>
@@ -111,6 +118,10 @@ export default defineComponent({
     pits: {
       type: Array,
     },
+    currentPlayer: {
+      type: String,
+      default: 'Player',
+    },
   },
   data(): { clickCount: number } {
     return {
@@ -120,6 +131,12 @@ export default defineComponent({
   methods: {
     getChoosenPitIndex(index: number): void {
       this.$emit('make-move', index);
+    },
+    isCurrentPlayer(player: string): boolean {
+      if (player === this.currentPlayer) {
+        return true;
+      }
+      return false;
     },
   },
 });

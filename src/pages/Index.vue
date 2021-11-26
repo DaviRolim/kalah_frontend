@@ -15,6 +15,7 @@
       active
       @make-move="play"
       :pits="boardState"
+      :currentPlayer="currentPlayer"
     ></board-component>
   </q-page>
 </template>
@@ -56,7 +57,8 @@ export default defineComponent({
       totalCount: 1200,
     };
     let boardState: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    return { todos, meta, boardState };
+    let currentPlayer = 'Player';
+    return { todos, meta, boardState, currentPlayer };
   },
   computed: {
     totalUnits(): number {
@@ -69,8 +71,8 @@ export default defineComponent({
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         .get(`${process.env.API!}/start`)
         .then((response) => {
-          // console.log(response.data);
           this.boardState = response.data as number[];
+          this.currentPlayer = 'Player1';
         })
         .catch((err) => {
           console.log(err);
@@ -83,8 +85,9 @@ export default defineComponent({
         .then((response) => {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           this.boardState = response.data.boardState as number[];
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          this.currentPlayer = response.data.currentPlayer as string;
           console.log(this.boardState);
-          console.log(this.totalUnits);
         })
         .catch((err) => {
           console.log(err);
