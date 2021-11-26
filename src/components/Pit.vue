@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex inline flex-center shadow-15"
+    class="flex inline flex-center shadow-5"
     :class="isKalah ? 'kalah' : 'shadow-box'"
     @click="pitSelected"
   >
@@ -44,17 +44,19 @@ export default defineComponent({
 </script>
 <style lang="sass" scoped>
 .shadow-box
-  width:90px
-  height: 100px
+  width: 110px
+  height: 120px
   margin: 25px
   border-radius: 30%
   font-size: 12px
+  background-color: #5D2D16
 .kalah
   width: 50%
   height: 70%
   margin-top: 30px
   border-radius: 30%
   border-style: solid 1px black
+  background-color: #42160A
 .unit
   width: 6px
   height: 6px

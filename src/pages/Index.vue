@@ -1,8 +1,5 @@
 <template>
-  <q-page
-    class="column items-center justify-start"
-    style="background-color: black"
-  >
+  <q-page class="column items-center justify-start blackbg">
     <q-btn
       @click="start"
       class="glossy q-mt-xl"
@@ -12,8 +9,9 @@
     >
       START GAME</q-btn
     >
+
     <board-component
-      title="Example component"
+      title="Kalah Board"
       active
       @make-move="play"
       :pits="boardState"
@@ -95,3 +93,8 @@ export default defineComponent({
   },
 });
 </script>
+<style lang="sass" scoped>
+.blackbg
+  background: url(../assets/black-bg.jpg)
+  background-size: cover
+</style>

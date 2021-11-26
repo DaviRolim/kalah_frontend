@@ -1,5 +1,11 @@
 <template>
   <q-card class="my-card shadow-2 board">
+    <q-chip size="18px">
+      <q-avatar>
+        <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+      </q-avatar>
+      Player 2
+    </q-chip>
     <div class="row justify-around">
       <div class="col-2 q-pl-xl">
         <pit
@@ -84,6 +90,12 @@
         ></pit>
       </div>
     </div>
+    <q-chip class="float-right" size="18px">
+      <q-avatar>
+        <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+      </q-avatar>
+      Player 1
+    </q-chip>
   </q-card>
 </template>
 
@@ -114,7 +126,8 @@ export default defineComponent({
 </script>
 <style lang="sass" scoped>
 .board
-   background: url(../assets/kalah-bg.jpg)
-   margin-top: 80px
+   background: url(../assets/kalah-bg-dark.jpg)
+   margin-top:  80px
+   margin-bottom: 10px
    border-radius: 5%
 </style>
