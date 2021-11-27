@@ -2,12 +2,12 @@
   <q-card class="my-card shadow-2 board">
     <q-chip
       size="18px"
-      :color="isCurrentPlayer('Player2') ? 'white' : 'grey-7'"
+      :color="isCurrentPlayer('PLAYER2') ? 'white' : 'grey-7'"
     >
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
       </q-avatar>
-      Player 2 {{ currentPlayer == 'Player2' ? ' - Your turn' : '' }}
+      Player 2 {{ currentPlayer == 'PLAYER2' ? ' - Your turn' : '' }}
     </q-chip>
     <div class="row justify-around">
       <div class="col-2 q-pl-xl">
@@ -96,12 +96,12 @@
     <q-chip
       class="float-right"
       size="18px"
-      :color="isCurrentPlayer('Player1') ? 'white' : 'grey-7'"
+      :color="isCurrentPlayer('PLAYER1') ? 'white' : 'grey-7'"
     >
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
       </q-avatar>
-      Player 1 {{ currentPlayer == 'Player1' ? ' - Your turn' : '' }}
+      Player 1 {{ currentPlayer == 'PLAYER1' ? ' - Your turn' : '' }}
     </q-chip>
   </q-card>
 </template>

@@ -21,44 +21,22 @@
 </template>
 
 <script lang="ts">
-import { Todo, Meta } from 'components/models';
 import BoardComponent from 'components/Board.vue';
 import { defineComponent } from 'vue';
 import { api } from 'boot/axios';
+import { useStore } from 'src/store';
+import { IGameInfo } from 'src/interfaces/iGameInfo';
 // import { useQuasar } from 'quasar';
 
 export default defineComponent({
   name: 'PageIndex',
   components: { BoardComponent },
   data() {
-    const todos: Todo[] = [
-      {
-        id: 1,
-        content: 'ct1',
-      },
-      {
-        id: 2,
-        content: 'ct2',
-      },
-      {
-        id: 3,
-        content: 'ct3',
-      },
-      {
-        id: 4,
-        content: 'ct4',
-      },
-      {
-        id: 5,
-        content: 'ct5',
-      },
-    ];
-    const meta: Meta = {
-      totalCount: 1200,
-    };
+    const $store = useStore();
     let boardState: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     let currentPlayer = 'Player';
-    return { todos, meta, boardState, currentPlayer };
+    let gameId = 1;
+    return { boardState, currentPlayer, gameId, $store };
   },
   computed: {
     totalUnits(): number {
@@ -71,8 +49,12 @@ export default defineComponent({
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         .get(`${process.env.API!}/start`)
         .then((response) => {
-          this.boardState = response.data as number[];
-          this.currentPlayer = 'Player1';
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          const gameInfo: IGameInfo = response.data;
+          void this.$store.dispatch('example/updateGameInfo', gameInfo);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          this.boardState = response.data.pits as number[];
+          this.currentPlayer = 'PLAYER1';
         })
         .catch((err) => {
           console.log(err);
@@ -80,14 +62,21 @@ export default defineComponent({
     },
     play(index: number) {
       api
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        .get(`${process.env.API!}/play?index=${index}`)
+        .get(
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          `${process.env.API!}/play?index=${index}&gameId=${
+            this.$store.state.example.gameInfo.gameId
+          }`
+        )
         .then((response) => {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-          this.boardState = response.data.boardState as number[];
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          const gameInfo: IGameInfo = response.data;
+          void this.$store.dispatch('example/updateGameInfo', gameInfo);
+          this.boardState = this.$store.state.example.gameInfo.pits;
           // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
           this.currentPlayer = response.data.currentPlayer as string;
-          console.log(this.boardState);
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+          this.gameId = response.data.gameId as number;
         })
         .catch((err) => {
           console.log(err);

@@ -1,11 +1,12 @@
+import { IGameInfo } from 'src/interfaces/iGameInfo';
 import { ActionTree } from 'vuex';
 import { StateInterface } from '../index';
-import { ExampleStateInterface } from './state';
+import { GameStateInterface } from './state';
 
-const actions: ActionTree<ExampleStateInterface, StateInterface> = {
-  someAction (/* context */) {
-    // your code
-  }
+const actions: ActionTree<GameStateInterface, StateInterface> = {
+  updateGameInfo({ commit }, gameInfo: IGameInfo) {
+    commit('UPDATE_GAME_STATE', gameInfo);
+  },
 };
 
 export default actions;
