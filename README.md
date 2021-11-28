@@ -1,12 +1,14 @@
 # Kalah Game (kalaha)
 
-Board Game for 2 Players
+The frontend for the game Kalaha using VueJs.
 
 ## Complete architecture
 
-![alt text](https://github.com/DaviRolim/kalah_frontend/blob/main/kalah-architecture.png?raw=true)
+![Architecture](https://github.com/DaviRolim/kalah_frontend/blob/main/kalah-architecture.png?raw=true)
 
-## Install the dependencies
+## Run Locally
+
+### Install the dependencies
 
 ```bash
 npm install
@@ -18,18 +20,4 @@ npm install
 quasar dev
 ```
 
-### Lint the files
-
-```bash
-npm run lint
-```
-
-### Build the app for production
-
-```bash
-quasar build
-```
-
-### Customize the configuration
-
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+This will start a development server at `http://localhost:3000`
