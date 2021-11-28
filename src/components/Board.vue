@@ -3,6 +3,7 @@
     <q-chip
       size="18px"
       :color="isCurrentPlayer('PLAYER2') ? 'white' : 'grey-7'"
+      :text-color="isCurrentPlayer('PLAYER2') ? 'black' : 'white'"
     >
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
@@ -97,6 +98,7 @@
       class="float-right"
       size="18px"
       :color="isCurrentPlayer('PLAYER1') ? 'white' : 'grey-7'"
+      :text-color="isCurrentPlayer('PLAYER1') ? 'black' : 'white'"
     >
       <q-avatar>
         <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
@@ -117,6 +119,7 @@ export default defineComponent({
   props: {
     pits: {
       type: Array,
+      required: true,
     },
     currentPlayer: {
       type: String,
@@ -127,6 +130,11 @@ export default defineComponent({
     return {
       clickCount: 0,
     };
+  },
+  computed: {
+    isPlayer1() {
+      return this.currentPlayer == 'PLAYER1';
+    },
   },
   methods: {
     getChoosenPitIndex(index: number): void {
