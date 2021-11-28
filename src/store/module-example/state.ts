@@ -8,7 +8,7 @@ function state(): GameStateInterface {
   return {
     gameInfo: {
       gameId: 1,
-      currentPlayer: 'PLAYER1',
+      currentPlayer: 'PLAYER',
       gameOver: false,
       pits: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
       player1Score: 0,

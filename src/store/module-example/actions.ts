@@ -5,6 +5,7 @@ import { GameStateInterface } from './state';
 
 const actions: ActionTree<GameStateInterface, StateInterface> = {
   updateGameInfo({ commit }, gameInfo: IGameInfo) {
+    // console.log(gameInfo);
     commit('UPDATE_GAME_STATE', gameInfo);
   },
 };

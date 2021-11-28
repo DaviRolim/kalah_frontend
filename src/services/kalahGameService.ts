@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-// import { api } from 'boot/axios'
+/* eslint-disable  */
+import { AxiosResponse } from 'axios';
+import { api } from 'boot/axios';
+import { IGameInfo } from 'src/interfaces/iGameInfo';
 
-// export function register ({ commit }, form) {
-//   return api.post('/auth/register', form)
-//     .then(response => {
-//       api.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token
-//       commit('login', {token: response.data.token, user: response.data.user})
-//     })
-// }
+export function startGame(): Promise<AxiosResponse<IGameInfo>> {
+  return api.get(`${process.env.API!}/start`);
+}

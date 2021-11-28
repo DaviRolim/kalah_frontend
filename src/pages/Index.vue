@@ -27,7 +27,6 @@ import { api } from 'boot/axios';
 import { useStore } from 'src/store';
 import { IGameInfo } from 'src/interfaces/iGameInfo';
 // import { useQuasar } from 'quasar';
-
 export default defineComponent({
   name: 'PageIndex',
   components: { BoardComponent },
