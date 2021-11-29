@@ -50,6 +50,10 @@ export default defineComponent({
   border-radius: 30%
   font-size: 12px
   background-color: #5D2D16
+@media only screen and (max-width: 812px)
+    .shadow-box
+      width: 65px
+      height: 80px
 .kalah
   width: 50%
   height: 70%
