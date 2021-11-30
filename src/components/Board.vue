@@ -109,7 +109,7 @@
       </q-avatar>
       Player 1 {{ currentPlayer == 'PLAYER1' ? ' - Your turn' : '' }}
     </q-chip>
-    <h1 v-else class="text-center">
+    <h1 v-else class="text-center text-white">
       Congratulations {{ winner }} won with {{ winnerPoints }} points.
     </h1>
   </q-card>
