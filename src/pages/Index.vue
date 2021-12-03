@@ -1,15 +1,12 @@
 <template>
   <q-page class="column items-center justify-start blackbg">
-    <q-btn
+    <q-img
+      src="../assets/start-image.png"
+      style="height: 200px; max-width: 350px"
+      class="q-mt-xl"
       @click="start"
-      class="glossy q-mt-xl"
-      rounded
-      color="grey-9"
-      size="28px"
     >
-      START GAME</q-btn
-    >
-
+    </q-img>
     <board-component
       title="Kalah Board"
       active
